@@ -16,7 +16,10 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "tslint:prettier-check": "tslint-config-prettier-check ./tslint.json",
+    "tslint": "tslint --fix --force --format stylish --project ./tsconfig.json ./{src,__tests__}/**/*.{ts,tsx}",
+    "prettier": "prettier --write ./{src,__tests__}/**/*.{ts,tsx}"
   },
   "devDependencies": {
     "@types/jest": "^23.3.2",
@@ -24,7 +27,16 @@
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "@types/react-redux": "^6.0.8",
+    "prettier": "^1.14.2",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-plugin-prettier": "^1.3.0",
     "typescript": "^3.0.3"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "es5"
   },
   "homepage": "https://hare8563.github.io/cgpage"
 }

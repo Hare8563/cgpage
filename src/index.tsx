@@ -1,11 +1,29 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './App';
+import Store from './Store';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-);
+interface Component {
+  component: JSX.Element;
+  container: string;
+}
+
+const components: Component[] = [
+  {
+    component: (
+      <Provider store={Store}>
+        <App />
+      </Provider>
+    ),
+    container: 'root',
+  },
+];
+
+components.forEach((comp: Component) => {
+  ReactDOM.render(comp.component, document.getElementById(comp.container) as HTMLElement);
+});
+
 registerServiceWorker();
